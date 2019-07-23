@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import { connectRouter, routerMiddleware as useRouterMiddleware } from 'connected-react-router'
 import { createBrowserHistory } from 'history'
 import createSagaMiddleware from 'redux-saga'
+import thunk from 'redux-thunk'
 import rootReducer from './reducer'
 import rootSaga from './saga'
 
@@ -15,7 +16,7 @@ const reducer = combineReducers({
 
 const initialState = {}
 const enhancers = []
-const middleware = [routerMiddleware, sagaMiddleware]
+const middleware = [routerMiddleware, sagaMiddleware, thunk]
 
 if (process.env.NODE_ENV === 'development') {
   const devToolsExtension = window.devToolsExtension

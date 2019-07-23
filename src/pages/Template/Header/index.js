@@ -6,11 +6,11 @@ import AddTaskForm from './AddTaskForm'
 
 class Header extends React.Component {
   state = {
-    addTaskWindow: true,
+    addTaskWindow: false,
   }
 
   openAddTaskWindow = () => {
-    this.setState({ addTaskWindow: true})
+    this.setState({ addTaskWindow: true })
   }
 
   closeAddTaskWindow = () => {
@@ -18,10 +18,18 @@ class Header extends React.Component {
   }
 
   render() {
+    const { addTask } = this.props
     const { addTaskWindow } = this.state
     return (
       <S.Header>
-        {addTaskWindow ? <AddTaskForm closeAddTaskWindow={this.closeAddTaskWindow}/>: null}
+        {addTaskWindow ? (
+          <AddTaskForm
+            exitForm={this.closeAddTaskWindow}
+            addTask={addTask}
+            formName={'Create new task'}
+            formType={'createTask'}
+          />
+        ) : null}
         <S.Hamburger>
           <S.HamburgerBar />
           <S.HamburgerBar />

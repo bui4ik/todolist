@@ -123,7 +123,7 @@ export const FormContainer = styled.div`
   flex-direction: column;
   position: fixed;
   width: 450px;
-  height: 230px;;
+  height: 280px;;
   top: 10%;
   left: 35%;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -165,4 +165,17 @@ export const Button = styled.button`
   height: 30px;
   margin-right: 15px;
   border: 2px solid #5584ff;
+`
+
+export const Priority = styled.div`
+  display: flex;
+  margin-bottom: 10px;
+`
+
+export const PriorityLabel = styled.label`
+  margin-right: 10px;
+`
+
+export const PriorityItem = styled.label`
+  margin-right: 10px;
 `

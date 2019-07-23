@@ -1,21 +1,23 @@
 import React from 'react'
 import * as S from './styles'
+import Badge from './Badge'
+import AdditionalInfo from './AdditionalInfo'
+import MainInfo from './MainInfo'
 
-const Task = ({name, description, creationDate, isCompleted}) => {
+const Task = ({ task }) => {
+  const { name, description, creationDate, isCompleted, priority, id } = task
   return (
     <S.Container>
-      <S.Badge>
-        <S.BadgeLetter>{name[0].toUpperCase()}</S.BadgeLetter>
-      </S.Badge>
+      <Badge name={name} />
       <S.TaskBody>
-        <S.AdditionalInfoContainer>
-          <S.Priority>High Priority</S.Priority>
-          <S.Date>{creationDate}</S.Date>
-        </S.AdditionalInfoContainer>
-        <S.MainInfoContainer>
-          <S.Name>{name}</S.Name>
-          <S.Description>{description}</S.Description>
-        </S.MainInfoContainer>
+        <AdditionalInfo isCompleted={isCompleted} priority={priority} creationDate={creationDate} />
+        <MainInfo
+          name={name}
+          description={description}
+          isCompleted={isCompleted}
+          id={id}
+          priority={priority}
+        />
       </S.TaskBody>
     </S.Container>
   )

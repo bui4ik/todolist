@@ -19,9 +19,11 @@
     "emotion-theming": "^10.0.10",
     "final-form": "^4.18.2",
     "history": "^4.9.0",
+    "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-final-form": "^6.3.0",
+    "react-moment": "^0.9.2",
     "react-redux": "^7.0.3",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
@@ -30,6 +32,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.0.2",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {

@@ -19,7 +19,31 @@ export const TasksCount = styled.div`
   color: #8996b2;
 `
 
-export const TasksDisplayType = styled.div`
+export const SortingContainer = styled.div`
+  display: flex;
   margin-left: auto;
-  display: ${props => props.showView ? null : 'none'};
+`
+
+export const TasksDisplayType = styled.button`
+`
+
+export const Sorting = styled.div`
+  display: flex;
+  background-color:#fff;
+  flex-direction: column;
+  position: absolute;
+  padding: 10px;
+  z-index: 2;
+  top: 18%;
+  left: 69%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+`
+
+export const Priority = styled.div`
+  display: flex;
+  margin-bottom: 10px;
+`
+
+export const PriorityItem = styled.label`
+  margin-right: 10px;
 `

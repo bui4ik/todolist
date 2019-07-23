@@ -10,6 +10,7 @@ export const Header = styled.div`
   width: calc(100% - 60px);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  z-index: 4;
 `
 export const Hamburger = styled.div`
   position: relative;
