@@ -6,16 +6,17 @@ import store, { history, persistor } from 'store'
 import Routes from 'routes'
 import GlobalStyle from 'GlobalStyle'
 import { PersistGate } from 'redux-persist/integration/react'
+import { BrowserRouter } from 'react-router-dom'
 
 const App = () => (
   <>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <ConnectedRouter history={history}>
+        <BrowserRouter>
           <ThemeProvider>
             <Routes />
           </ThemeProvider>
-        </ConnectedRouter>
+        </BrowserRouter>
       </PersistGate>
     </Provider>
     <GlobalStyle />
