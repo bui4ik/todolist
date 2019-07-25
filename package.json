@@ -1,20 +1,21 @@
 {
-  "homepage":"https://bui4ik.github.io/todolist",
+  "homepage": "https://bui4ik.github.io/todolist",
   "name": "atomic-serenity",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "coverage": "react-scripts test -- --coverage",
     "eslint": "eslint --cache src",
     "stylelint": "stylelint \"src/**/*.{js,jsx}\"",
-    "prettier": "prettier --write -l \"src/**/*.{js,jsx}\"",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "prettier": "prettier --write -l \"src/**/*.{js,jsx}\""
   },
   "dependencies": {
+    "@emotion/core": "^10.0.14",
     "connected-react-router": "^6.4.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^6.0.0",
