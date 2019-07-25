@@ -1,7 +1,5 @@
 import React from 'react'
 import * as S from './styles'
-import { addTask } from 'store/tasksList/thunk'
-import { connect } from 'react-redux'
 import AddTaskForm from './AddTaskForm'
 
 class Header extends React.Component {
@@ -18,26 +16,23 @@ class Header extends React.Component {
   }
 
   render() {
-    const { addTask } = this.props
     const { addTaskWindow } = this.state
     return (
       <S.Header>
-        {addTaskWindow ? (
+        {addTaskWindow && (
           <AddTaskForm
             exitForm={this.closeAddTaskWindow}
-            addTask={addTask}
-            formName={'Create new task'}
-            formType={'createTask'}
+            formName="Create new task"
+            formType="createTask"
           />
-        ) : null}
+        )}
         <S.Hamburger>
           <S.HamburgerBar />
           <S.HamburgerBar />
           <S.HamburgerBar />
         </S.Hamburger>
         <S.ButtonsContainer>
-          <S.Sort>AZ</S.Sort>
-          <S.Button onClick={this.openAddTaskWindow}>+ Add ToDo</S.Button>
+          <S.Button onClick={this.openAddTaskWindow}>Add new task</S.Button>
           <S.UserPhoto />
         </S.ButtonsContainer>
       </S.Header>
@@ -45,17 +40,4 @@ class Header extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {}
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    addTask: data => dispatch(addTask(data)),
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Header)
+export default Header

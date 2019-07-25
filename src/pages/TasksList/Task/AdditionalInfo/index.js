@@ -1,18 +1,18 @@
-import * as S from './styles'
-import Moment from 'react-moment'
 import React from 'react'
+import * as S from './styles'
+
 
 const AdditionalInfo = ({isCompleted, priority, creationDate}) => {
   return (
     <>
       {isCompleted ? (
         <S.Container>
-          <S.Priority>Completed</S.Priority>
+          <S.CompleteStatus>Completed</S.CompleteStatus>
         </S.Container>
       ) : (
         <S.Container>
-          <S.Priority>{priority} Priority</S.Priority>
-          <Moment format="LLL">{creationDate}</Moment>
+          <S.Priority priority={priority} >{priority} Priority</S.Priority>
+          <S.CreationDate format="LLL">{creationDate}</S.CreationDate>
         </S.Container>
       )}
     </>

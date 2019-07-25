@@ -1,6 +1,9 @@
 import React from 'react'
 import * as S from './styles'
-import { Field, Form } from 'react-final-form'
+import PrioritySortForm from './PrioritySortForm'
+import ReactSVG from 'react-svg'
+import row from './two-rows-and-three-columns-layout.svg'
+import column from './three-rows-layout-content-structure-design.svg'
 
 const SectionTitle = ({
   text,
@@ -10,63 +13,42 @@ const SectionTitle = ({
   sortWindow,
   sortActiveTasks,
   initialValues,
+  setDateSortType,
+  dateSortType,
+  setViewType,
 }) => {
   const onSubmit = value => {
     sortActiveTasks(value.sort)
+    openCloseSortWindow()
   }
-
   return (
     <S.Container>
       <S.Title>{text}</S.Title>
       <S.TasksCount>({count})</S.TasksCount>
-      {showView ? (
+      {showView && (
         <S.SortingContainer>
-          <S.TasksDisplayType onClick={openCloseSortWindow}>Show {initialValues} ⯆</S.TasksDisplayType>
-          {sortWindow ? (
-            <S.Sorting>
-              <Form
-                onSubmit={onSubmit}
-                initialValues={{sort: initialValues}}
-                render={({ handleSubmit, submitting, pristine }) => (
-                  <form onSubmit={handleSubmit}>
-                    <S.Priority>
-                      <div>
-                        <S.PriorityItem>
-                          <Field name="sort" component="input" type="radio" value="All" required />{' '}
-                          All
-                        </S.PriorityItem>
-                        <S.PriorityItem>
-                          <Field name="sort" component="input" type="radio" value="Low" required />{' '}
-                          Low
-                        </S.PriorityItem>
-                        <S.PriorityItem>
-                          <Field
-                            name="sort"
-                            component="input"
-                            type="radio"
-                            value="Medium"
-                            required
-                          />{' '}
-                          Medium
-                        </S.PriorityItem>
-                        <S.PriorityItem>
-                          <Field name="sort" component="input" type="radio" value="High" required />{' '}
-                          High
-                        </S.PriorityItem>
-                      </div>
-                    </S.Priority>
-                    <div className="buttons">
-                      <button type="submit" disabled={submitting || pristine}>
-                        Sort
-                      </button>
-                    </div>
-                  </form>
-                )}
-              />
-            </S.Sorting>
-          ) : null}
+          <S.ViewButton onClick={() => setViewType('row')}>
+            <ReactSVG src={row} />
+          </S.ViewButton>
+          <S.ViewButton onClick={() => setViewType('column')}>
+            <ReactSVG src={column} />
+          </S.ViewButton>
+          <S.SortByDateButton onClick={setDateSortType}>
+            Sort By Date {dateSortType === 'ASC' ? '▼' : '▲'}
+          </S.SortByDateButton>
+          <S.TasksDisplayTypeContainer>
+            <S.TasksDisplayTypeButton onClick={openCloseSortWindow}>
+              Show {initialValues} ⌵
+            </S.TasksDisplayTypeButton>
+            <PrioritySortForm
+              initialValues={initialValues}
+              onSubmit={onSubmit}
+              sortWindow={sortWindow}
+              openCloseSortWindow={openCloseSortWindow}
+            />
+          </S.TasksDisplayTypeContainer>
         </S.SortingContainer>
-      ) : null}
+      )}
     </S.Container>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
-import * as S from './styles'
 import Sidebar from 'pages/Template/SideBar'
 import Header from 'pages/Template/Header'
+import * as S from './styles'
 
 const Template = ({ children }) => (
   <S.Container>
@@ -14,5 +14,6 @@ const Template = ({ children }) => (
     </S.Area>
   </S.Container>
 )
+
 
 export default Template

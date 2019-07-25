@@ -1,14 +1,12 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import { connectRouter, routerMiddleware as useRouterMiddleware } from 'connected-react-router'
 import { createBrowserHistory } from 'history'
-import createSagaMiddleware from 'redux-saga'
+import { persistStore } from 'redux-persist'
 import thunk from 'redux-thunk'
 import rootReducer from './reducer'
-import rootSaga from './saga'
 
 const history = createBrowserHistory()
 const routerMiddleware = useRouterMiddleware(history)
-const sagaMiddleware = createSagaMiddleware()
 const reducer = combineReducers({
   ...rootReducer,
   router: connectRouter(history),
@@ -16,11 +14,11 @@ const reducer = combineReducers({
 
 const initialState = {}
 const enhancers = []
-const middleware = [routerMiddleware, sagaMiddleware, thunk]
+const middleware = [routerMiddleware, thunk]
 
 if (process.env.NODE_ENV === 'development') {
-  const devToolsExtension = window.devToolsExtension
-  const { createLogger } = require('redux-logger')
+  const devToolsExtension = window.devToolsExtension // eslint-disable-line  prefer-destructuring
+  const { createLogger } = require('redux-logger') // eslint-disable-line global-require
   const logger = createLogger()
 
   if (typeof devToolsExtension === 'function') {
@@ -37,8 +35,8 @@ const composedEnhancers = compose(
 
 const store = createStore(reducer, initialState, composedEnhancers)
 
-sagaMiddleware.run(rootSaga)
+const persistor = persistStore(store)
 
-export { history }
+export { history, persistor }
 
 export default store

@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import photo from './spiderman.jpg'
+import { backgroundColor } from 'config/theme'
+import { mainButtonColor } from 'config/theme'
 
 export const Header = styled.div`
   height: 64px;
@@ -9,7 +11,7 @@ export const Header = styled.div`
   padding: 10px 20px;
   width: calc(100% - 60px);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: ${backgroundColor};
   z-index: 4;
 `
 export const Hamburger = styled.div`
@@ -41,19 +43,18 @@ export const Sort = styled.div`
 `
 
 export const Button = styled.button`
-  border-radius: 15px;
-  background-color: #5584ff;
+  border-radius: 30px;
+  background-color: ${mainButtonColor};
   color: #fff;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  width: 100px;
-  height: 30px;
+  width: 130px;
+  height: 40px;
   margin-right: 15px;
-  border: 2px solid #5584ff;
+  border: none;
   
   :hover{
-  background-color: #fff;
-  color: #5584ff;
+  opacity: 0.9;
   }
 `
 

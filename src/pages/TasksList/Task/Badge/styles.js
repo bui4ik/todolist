@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #ba68c8;
+  background-color: ${(props)=> props.badgeColor};
   display: flex;
   align-self: center;
   align-items: center;

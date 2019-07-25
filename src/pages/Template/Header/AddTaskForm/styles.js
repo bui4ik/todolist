@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components'
+import { backgroundColor, mainTextColor, taskBorderColor } from 'config/theme'
+import { Field } from 'react-final-form'
 
 const btn = (light, dark) => css`
   white-space: nowrap;
@@ -118,17 +120,19 @@ export default styled.div`
 `
 
 export const FormContainer = styled.div`
-  background-color: #fff;
+  background-color: ${backgroundColor};
+  border: 1px solid ${taskBorderColor};
   display: flex;
   flex-direction: column;
   position: fixed;
-  width: 450px;
-  height: 280px;;
+  width: 430px;
+  height: 300px;;
   top: 10%;
   left: 35%;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   padding: 20px;
   border-radius: 5px;
+  z-index: 2;
 `
 
 export const Header = styled.div`
@@ -139,20 +143,23 @@ export const Header = styled.div`
 
 export const ExitButton = styled.button`
   border: none;
-  background-color:#fff;
+  background-color: transparent;
   font-size: 25px;
   margin-left: auto;
+  color: ${mainTextColor};
 `
 
 export const Title = styled.div`
   font-weight: bold;
   font-size: 20px;
+  color: ${mainTextColor};
 `
 
 export const TaskName = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+  color: ${mainTextColor};
 `
 
 export const Button = styled.button`
@@ -174,8 +181,24 @@ export const Priority = styled.div`
 
 export const PriorityLabel = styled.label`
   margin-right: 10px;
+  color: ${mainTextColor};
 `
 
 export const PriorityItem = styled.label`
   margin-right: 10px;
+    color:  ${props => { switch (props.priority) {
+  case 'High':
+    return '#f45d22'
+  case 'Medium':
+    return '#e0245e'
+  case 'Low':
+    return '#794bc4'
+  default:
+    return '#212121'
+}}};
 `
+
+export const FieldInput = styled(Field)`
+  color: black;
+`
+

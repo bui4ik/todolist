@@ -1,10 +1,13 @@
-import * as S from './styles'
 import ReactSVG from 'react-svg'
-import more from '../more.svg'
 import React from 'react'
-import { completeTask, deleteTask } from 'store/tasksList/thunk'
+import * as actions from 'store/tasksList/thunk'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import more from '../more.svg'
 import AddTaskForm from '../../../Template/Header/AddTaskForm'
+import * as S from './styles'
+import OutsideClickHandler from 'react-outside-click-handler/esm/OutsideClickHandler'
+
 
 class MainInfo extends React.Component {
   state = {
@@ -13,21 +16,23 @@ class MainInfo extends React.Component {
   }
 
   openCloseTaskSettings = () => {
-    this.setState({ taskSettings: !this.state.taskSettings })
+    this.setState(({ taskSettings }) => ({ taskSettings: !taskSettings }))
   }
 
   openCloseTaskEditor = () => {
-    this.setState({ editTask: !this.state.editTask })
+    this.setState(({ editTask }) => ({ editTask: !editTask }))
     this.setState({ taskSettings: false })
   }
 
   deleteTask = e => {
-    this.props.deleteTask(e.currentTarget.id)
+    const { actions: {deleteTask} } = this.props
+    deleteTask(e.currentTarget.id)
     this.openCloseTaskSettings()
   }
 
   completeTask = e => {
-    this.props.completeTask(e.currentTarget.id)
+    const { actions: {completeTask} } = this.props
+    completeTask(e.currentTarget.id)
     this.openCloseTaskSettings()
   }
 
@@ -41,9 +46,13 @@ class MainInfo extends React.Component {
           <S.Description>{description}</S.Description>
         </div>
         <S.EditTaskContainer>
-          {taskSettings ? (
+          {taskSettings && (
+            <OutsideClickHandler
+              disabled = {!taskSettings}
+              onOutsideClick={() => this.openCloseTaskSettings()}
+            >
             <S.EditTask>
-              {isCompleted ? null : (
+              {!isCompleted && (
                 <S.EditTaskButton onClick={this.openCloseTaskEditor}>Edit task</S.EditTaskButton>
               )}
               <S.EditTaskButton id={id} onClick={e => this.completeTask(e)}>
@@ -53,16 +62,17 @@ class MainInfo extends React.Component {
                 Delete
               </S.EditTaskButton>
             </S.EditTask>
-          ) : null}
-          {editTask ? (
+            </OutsideClickHandler>
+          )}
+          {editTask && (
             <AddTaskForm
-              formName={'Edit task'}
+              formName='Edit task'
               exitForm={this.openCloseTaskEditor}
-              formType={'editTask'}
+              formType='editTask'
               taskId={id}
               initialValues={{ name, description, priority }}
             />
-          ) : null}
+          )}
           <S.MoreContainer onClick={this.openCloseTaskSettings}>
             <ReactSVG src={more} />
           </S.MoreContainer>
@@ -72,18 +82,17 @@ class MainInfo extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {}
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    deleteTask: id => dispatch(deleteTask(id)),
-    completeTask: id => dispatch(completeTask(id)),
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(
+    {
+      deleteTask: actions.deleteTask,
+      completeTask: actions.completeTask,
+    },
+    dispatch,
+  ),
+})
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps,
 )(MainInfo)

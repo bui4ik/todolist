@@ -8,7 +8,7 @@ render(<App />, root)
 
 if (module.hot) {
   module.hot.accept('./App', () => {
-    const NextApp = require('./App').default
+    const NextApp = require('./App').default // eslint-disable-line no-console
     render(<NextApp />, root)
   })
 }

@@ -15,6 +15,11 @@ export const EDIT_TASK_REQUEST = 'EDIT_TASK_REQUEST'
 export const EDIT_TASK_SUCCESS = 'EDIT_TASK_SUCCESS'
 export const EDIT_TASK_FAILURE = 'EDIT_TASK_FAILURE'
 
+export const SET_PRIORITY_SORT_TYPE = 'SET_PRIORITY_SORT_TYPE'
+export const SET_DATE_SORT_TYPE = 'SET_DATE_SORT_TYPE'
+export const SET_COLOR_SCHEME = 'SET_COLOR_SCHEME'
+export const SET_VIEW_TYPE = 'SET_VIEW_TYPE'
+
 //  tasks action creators
 export const addTaskRequest = () => ({
   type: ADD_TASK_REQUEST,
@@ -22,7 +27,7 @@ export const addTaskRequest = () => ({
 
 export const addTaskSuccess = newTask => ({
   type: ADD_TASK_SUCCESS,
-  payload: {newTask},
+  payload: { newTask },
 })
 
 export const addTaskFailure = error => ({
@@ -36,7 +41,7 @@ export const deleteTaskRequest = () => ({
 
 export const deleteTaskSuccess = id => ({
   type: DELETE_TASK_SUCCESS,
-  payload: {id},
+  payload: { id },
 })
 
 export const deleteTaskFailure = error => ({
@@ -50,7 +55,7 @@ export const completeTaskRequest = () => ({
 
 export const completeTaskSuccess = id => ({
   type: COMPLETE_TASK_SUCCESS,
-  payload: {id},
+  payload: { id },
 })
 
 export const completeTaskFailure = error => ({
@@ -62,9 +67,9 @@ export const editTaskRequest = () => ({
   type: EDIT_TASK_REQUEST,
 })
 
-export const editTaskSuccess = ({id, name, description, priority}) => ({
+export const editTaskSuccess = ({ id, name, description, priority, badgeColor }) => ({
   type: EDIT_TASK_SUCCESS,
-  payload: {id, name, description, priority},
+  payload: { id, name, description, priority, badgeColor },
 })
 
 export const editTaskFailure = error => ({
@@ -72,3 +77,21 @@ export const editTaskFailure = error => ({
   payload: { error },
 })
 
+export const setPrioritySortType = priorityType => ({
+  type: SET_PRIORITY_SORT_TYPE,
+  payload: { priorityType },
+})
+
+export const setDateSortType = () => ({
+  type: SET_DATE_SORT_TYPE,
+})
+
+export const setColorScheme = colorSchemeType => ({
+  type: SET_COLOR_SCHEME,
+  payload: { colorSchemeType },
+})
+
+export const setViewType = viewType => ({
+  type: SET_VIEW_TYPE,
+  payload: { viewType },
+})

@@ -1,20 +1,22 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
-import { ThemeProvider } from 'emotion-theming'
-import store, { history } from 'store'
-import theme from 'config/theme'
+import ThemeProvider from 'utils/ThemeProvider'
+import store, { history, persistor } from 'store'
 import Routes from 'routes'
 import GlobalStyle from 'GlobalStyle'
+import { PersistGate } from 'redux-persist/integration/react'
 
 const App = () => (
   <>
     <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <ThemeProvider theme={theme}>
-          <Routes />
-        </ThemeProvider>
-      </ConnectedRouter>
+      <PersistGate persistor={persistor}>
+        <ConnectedRouter history={history}>
+          <ThemeProvider>
+            <Routes />
+          </ThemeProvider>
+        </ConnectedRouter>
+      </PersistGate>
     </Provider>
     <GlobalStyle />
   </>

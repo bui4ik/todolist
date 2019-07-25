@@ -72,6 +72,7 @@ export default (state = initialState, { type, payload }) => {
                 name: payload.name,
                 description: payload.description,
                 priority: payload.priority,
+                badgeColor: payload.badgeColor
               }
             : task,
         ),
@@ -81,6 +82,26 @@ export default (state = initialState, { type, payload }) => {
         ...state,
         isLoading: false,
         error: payload.error,
+      }
+    case actions.SET_PRIORITY_SORT_TYPE:
+      return {
+        ...state,
+        prioritySortType: payload.priorityType
+      }
+    case actions.SET_DATE_SORT_TYPE:
+      return {
+        ...state,
+        dateSortType: state.dateSortType === 'ASC' ? 'DESC' : 'ASC'
+      }
+    case actions.SET_COLOR_SCHEME:
+      return {
+        ...state,
+        colorScheme: payload.colorSchemeType
+      }
+    case actions.SET_VIEW_TYPE:
+      return {
+        ...state,
+        viewType: payload.viewType
       }
     default:
       return state
