@@ -174,17 +174,17 @@ export const Button = styled.button`
   border: 2px solid #5584ff;
 `
 
-export const Priority = styled.div`
+export const RadioButtonsContainer = styled.div`
   display: flex;
   margin-bottom: 10px;
 `
 
-export const PriorityLabel = styled.label`
+export const RadioButtonsLabel = styled.label`
   margin-right: 10px;
   color: ${mainTextColor};
 `
 
-export const PriorityItem = styled.label`
+export const RadioButtonsItem = styled.label`
   margin-right: 10px;
     color:  ${props => { switch (props.priority) {
   case 'High':

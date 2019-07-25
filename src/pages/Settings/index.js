@@ -1,11 +1,11 @@
 import React from 'react'
-import Template from '../Template'
 import { Field, Form } from 'react-final-form'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import Template from '../Template'
 import * as S from './styles'
 import * as selectors from '../../store/tasksList/selectors'
-import { bindActionCreators } from 'redux'
 import * as actions from '../../store/tasksList/actions'
-import { connect } from 'react-redux'
 
 const Settings = ({actions: {changeColorScheme}, colorScheme}) =>{
   const onSubmit = ({colorScheme}) =>{

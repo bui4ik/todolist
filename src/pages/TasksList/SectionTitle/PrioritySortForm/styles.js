@@ -18,6 +18,12 @@ export const Sorting = styled.div`
   top: 100%;
   left: -114%;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  
+  
+    
+  @media (max-width: 768px ) {
+   left: -256%;
+  }
 `
 
 export const Priority = styled.div`

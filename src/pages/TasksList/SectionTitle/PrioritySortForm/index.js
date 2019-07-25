@@ -1,7 +1,7 @@
 import React from 'react'
-import * as S from './styles'
 import { Field, Form } from 'react-final-form'
 import OutsideClickHandler from 'react-outside-click-handler/esm/OutsideClickHandler'
+import * as S from './styles'
 
 const PrioritySortForm = ({sortWindow, onSubmit, initialValues, openCloseSortWindow}) => {
   return(
@@ -17,12 +17,11 @@ const PrioritySortForm = ({sortWindow, onSubmit, initialValues, openCloseSortWin
             render={({ handleSubmit, submitting, pristine }) => (
               <form onSubmit={handleSubmit}>
                 <S.Priority>
-                  <div>
                     <S.PriorityItem>
                       <Field name="sort" component="input" type="radio" value="All" required />{' '}
                       All
                     </S.PriorityItem>
-                    <S.PriorityItem priority={'Low'}>
+                    <S.PriorityItem priority='Low'>
                       <Field name="sort" component="input" type="radio" value="Low" required />{' '}
                       Low
                     </S.PriorityItem>
@@ -40,7 +39,6 @@ const PrioritySortForm = ({sortWindow, onSubmit, initialValues, openCloseSortWin
                       <Field name="sort" component="input" type="radio" value="High" required />{' '}
                       High
                     </S.PriorityItem>
-                  </div>
                 </S.Priority>
                 <div className="buttons">
                   <S.PrioritySubmitButton type="submit" disabled={submitting || pristine}>

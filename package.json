@@ -1,4 +1,5 @@
 {
+  "homepage":"https://bui4ik.github.io/todolist",
   "name": "atomic-serenity",
   "version": "1.0.0",
   "private": true,
@@ -9,15 +10,12 @@
     "coverage": "react-scripts test -- --coverage",
     "eslint": "eslint --cache src",
     "stylelint": "stylelint \"src/**/*.{js,jsx}\"",
-    "prettier": "prettier --write -l \"src/**/*.{js,jsx}\""
+    "prettier": "prettier --write -l \"src/**/*.{js,jsx}\"",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.1.1",
-    "@emotion/core": "^10.0.10",
-    "@emotion/styled": "^10.0.11",
-    "body-scroll-lock": "^2.6.4",
     "connected-react-router": "^6.4.0",
-    "emotion-theming": "^10.0.10",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -26,9 +24,9 @@
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-ternaries": "^1.1.0",
     "final-form": "^4.18.2",
+    "gh-pages": "^2.0.1",
     "history": "^4.9.0",
     "moment": "^2.24.0",
-    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-beautiful-dnd": "^11.0.5",
     "react-dom": "^16.8.6",
@@ -48,7 +46,6 @@
     "styled-theming": "^2.2.0"
   },
   "devDependencies": {
-    "auth0-js": "^9.11.2",
     "husky": "^2.2.0",
     "lint-staged": "^8.1.6",
     "prettier": "^1.17.1",

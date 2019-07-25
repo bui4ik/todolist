@@ -1,9 +1,9 @@
 import React from 'react'
-import * as S from './styles'
 import Badge from './Badge'
 import AdditionalInfo from './AdditionalInfo'
 import MainInfo from './MainInfo'
 import { Draggable } from 'react-beautiful-dnd'
+import * as S from './styles'
 
 const Task = ({ task, index, viewType }) => {
   const { name, description, creationDate, isCompleted, priority, id, badgeColor } = task

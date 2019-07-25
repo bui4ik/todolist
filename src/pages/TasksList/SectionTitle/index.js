@@ -1,9 +1,9 @@
 import React from 'react'
-import * as S from './styles'
 import PrioritySortForm from './PrioritySortForm'
+import row from 'assets/two-rows-and-three-columns-layout.svg'
+import column from 'assets/three-rows-layout-content-structure-design.svg'
 import ReactSVG from 'react-svg'
-import row from './two-rows-and-three-columns-layout.svg'
-import column from './three-rows-layout-content-structure-design.svg'
+import * as S from './styles'
 
 const SectionTitle = ({
   text,

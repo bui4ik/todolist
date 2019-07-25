@@ -3,10 +3,10 @@ import React from 'react'
 import * as actions from 'store/tasksList/thunk'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import more from '../more.svg'
-import AddTaskForm from '../../../Template/Header/AddTaskForm'
-import * as S from './styles'
+import more from 'assets/more.svg'
+import AddTaskForm from 'pages/Template/Header/AddEditTaskForm'
 import OutsideClickHandler from 'react-outside-click-handler/esm/OutsideClickHandler'
+import * as S from './styles'
 
 
 class MainInfo extends React.Component {

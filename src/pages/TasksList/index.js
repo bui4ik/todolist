@@ -1,12 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as selectors from 'store/tasksList/selectors'
-import Template from '../Template'
-import Task from './Task'
-import SectionTitle from './SectionTitle'
 import { bindActionCreators } from 'redux'
 import * as actions from 'store/tasksList/actions'
 import * as thunk from 'store/tasksList/thunk'
+import Template from '../Template'
+import Task from './Task'
+import SectionTitle from './SectionTitle'
 import * as S from './styles'
 import { Droppable, DragDropContext } from 'react-beautiful-dnd'
 
@@ -65,7 +65,7 @@ class TasksList extends React.Component {
             setViewType={setViewType}
             showView
           />
-          <Droppable droppableId={'activeTasks'}>
+          <Droppable droppableId='activeTasks'>
             {provided => (
               <S.TasksTable
                 ref={provided.innerRef}
@@ -84,7 +84,7 @@ class TasksList extends React.Component {
             showView={false}
             count={tasks.filter(task => task.isCompleted).length}
           />
-          <Droppable droppableId={'completedTasks'}>
+          <Droppable droppableId='completedTasks'>
             {provided => (
               <S.TasksTable ref={provided.innerRef} {...provided.droppableProps}>
                 {tasks.map(

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { backgroundColor, mainButtonColor, mainTextColor, taskBorderColor } from 'config/theme'
+import { mainButtonColor, mainTextColor} from 'config/theme'
 
 export const Container = styled.div`
   display: flex;
@@ -12,6 +12,10 @@ export const Title = styled.div`
   font-weight: 700;
   margin-right: 10px;
   color: ${mainTextColor};
+  
+  @media (max-width: 768px ) {
+   font-size: 15px;
+  }
 `
 
 export const TasksCount = styled.div`
@@ -19,6 +23,10 @@ export const TasksCount = styled.div`
   font-size: 27px;
   font-weight: 700;
   color: #8996b2;
+  
+  @media (max-width: 768px ) {
+   font-size: 15px;
+  }
 `
 
 export const SortingContainer = styled.div`
@@ -38,6 +46,12 @@ export const ViewButton = styled.button`
   width: 20px;
   height: 20px;
   color: aqua;
+  fill: ${mainTextColor};
+  
+  }
+  
+  @media (max-width: 768px ) {
+   margin-right: 5px;
   }
 `
 
@@ -63,5 +77,9 @@ export const TasksDisplayTypeButton = styled.button`
   background-color: transparent;
   color: ${mainButtonColor};
   font-weight: 700;
+  
+    @media (max-width: 768px ) {
+    width: 40px
+  }
 `
 

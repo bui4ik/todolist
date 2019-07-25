@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactSVG from 'react-svg'
+import logo from 'assets/to-do-list.svg'
+import home from 'assets/home.svg'
+import settings from 'assets/settings.svg'
 import * as S from './styles'
-import logo from './img/to-do-list.svg'
-import home from './img/home.svg'
-import settings from './img/settings.svg'
 
 const Sidebar = () =>{
   return (

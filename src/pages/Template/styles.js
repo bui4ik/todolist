@@ -8,13 +8,15 @@ export const Container = styled.div`
 export const Area = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-width: 380px;
+  height: 100%;
   width: 100%;
   margin-left: 70px;
 `
 
 export const Content = styled.div`
   margin-top: 64px;
+  min-height: 740px;
   width: 100%;
   background-color: ${backgroundColor};
   padding: 15px 35px;

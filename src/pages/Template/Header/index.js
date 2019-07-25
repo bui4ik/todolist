@@ -1,6 +1,6 @@
 import React from 'react'
 import * as S from './styles'
-import AddTaskForm from './AddTaskForm'
+import AddTaskForm from './AddEditTaskForm'
 
 class Header extends React.Component {
   state = {

@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { mainButtonColor, mainTextColor } from 'config/theme'
-import { Form } from 'react-final-form'
 
 export const Title = styled.div`
   font-size: 27px;

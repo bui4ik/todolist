@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import photo from './spiderman.jpg'
-import { backgroundColor } from 'config/theme'
-import { mainButtonColor } from 'config/theme'
+import { backgroundColor, mainButtonColor, mainTextColor } from 'config/theme'
+import photo from 'assets/spiderman.jpg'
 
 export const Header = styled.div`
   height: 64px;
@@ -23,7 +22,7 @@ export const Hamburger = styled.div`
 export const HamburgerBar = styled.div`
   width: 20px;
   height: 3px;
-  background-color: #000;
+  background-color: ${mainTextColor};
   margin: 5px 0;
   transition: 0.3s;
 `
